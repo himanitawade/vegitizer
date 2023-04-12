@@ -47,3 +47,24 @@ def add_application_to_db(job_id, data):
     )
 
     conn.execute(query, val)
+
+def load_veg_from_db():
+  with engine.connect() as conn:
+    query = text("select * from veg")
+    result = conn.execute(query)
+    results = []
+    for row in result.all():
+      row_as_dict = row._mapping
+      results.append(row_as_dict)
+  return (results)
+
+def load_non_veg_from_db():
+  with engine.connect() as conn:
+    query = text("select * from non_veg")
+    result = conn.execute(query)
+    results = []
+    for row in result.all():
+      row_as_dict = row._mapping
+      results.append(row_as_dict)
+  return results
+  

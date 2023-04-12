@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify, request
 from database import load_jobs_from_db, load_job_from_db, add_application_to_db
+from recommender import get_substitute
 
 app = Flask(__name__)
 
@@ -33,6 +34,10 @@ def apply_to_job(id):
                          application=data,
                          job=job)
 
+
+@app.route("/enter_meat" )
+def get_meat_selection():
+  return render_template('enter_meat.html')
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)
