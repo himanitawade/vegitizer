@@ -4,5 +4,3 @@ sqlalchemy
 pymysql
 pandas
 scikit-learn
-sklearn.model_selection
-sklearn.tree
