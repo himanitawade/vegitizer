@@ -3,4 +3,6 @@ gunicorn
 sqlalchemy
 pymysql
 pandas
-sklearn
+scikit-learn
+sklearn.model_selection
+sklearn.tree
