@@ -43,9 +43,12 @@ def get_substitute(meat):
   non_veg_nutrients_norm = (non_veg_nutrients - df[nutrient_cols].min()) / (df[nutrient_cols].max() - df[nutrient_cols].min())
   veg_substitutes = clf.predict(non_veg_nutrients_norm)
   value = []
-  value.append(veg_substitutes)
+  #value.append(veg_substitutes)
+  value.extend(veg_substitutes)
   veg_options = veg_df.sample(n=5)
   veg_options = veg_options.Category
   value.append(veg_options)
   return(value)
+
+print(get_substitute('Chicken'))
   

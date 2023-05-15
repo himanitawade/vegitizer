@@ -35,9 +35,17 @@ def apply_to_job(id):
                          job=job)
 
 
-@app.route("/enter_meat" )
+#@app.route("/enter_meat" )
+#def get_meat_selection():
+ # return render_template('enter_meat.html')
+@app.route("/enter_meat", methods=['GET', 'POST'])
 def get_meat_selection():
-  return render_template('enter_meat.html')
+    if request.method == 'POST':
+        meat = request.form.get('meat')
+        substitutes = get_substitute(meat)
+        return render_template('enter_meat.html', result=meat, result_items=substitutes)
+    return render_template('enter_meat.html')
+
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)
