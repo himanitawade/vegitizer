@@ -49,6 +49,3 @@ def get_substitute(meat):
   veg_options = veg_options.Category
   value.append(veg_options)
   return(value)
-
-print(get_substitute('Chicken'))
-  
