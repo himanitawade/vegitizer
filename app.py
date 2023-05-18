@@ -71,7 +71,6 @@ def find_recipes():
 def recipes():
   query = f'vegan+recipes+{time.time()}'
   videos = youtube_search(query)
-  print(videos)
   if videos:
     return render_template('recipes.html', videos=videos)
   else:
