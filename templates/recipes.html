@@ -72,9 +72,16 @@
   {% include 'nav.html' %}
   <div class="container">
     <h1>Recipes</h1>
-    {% if video_id %}
-      <h2>Here is a recipe you might like:</h2>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    {% if videos %}
+      <h2>Here are some recipes you might like:</h2>
+      <ul>
+        {% for video in videos %}
+          <li>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video['video_id'] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>{{ video['title'] }}</p>
+          </li>
+        {% endfor %}
+      </ul>
     {% else %}
       <h2>Sorry, we couldn't find any recipes at the moment.</h2>
     {% endif %}

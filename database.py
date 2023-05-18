@@ -68,3 +68,15 @@ def load_non_veg_from_db():
       results.append(row_as_dict)
   return results
   
+def add_feedback_to_db(name, email, message):
+    with engine.connect() as conn:
+        val = {
+            'name': name,
+            'email': email,
+            'message': message
+        }
+        query = text(
+            "INSERT INTO feedbacks (name, email, message) VALUES (:name, :email, :message)"
+        )
+
+        conn.execute(query, val)
